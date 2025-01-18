@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Banner from '../components/Banner';
-import FilterContainer from '../components/containers/FilterContainer';
+// import FilterContainer from '../components/containers/FilterContainer';
 import ListFoodContainer from '../components/containers/ListFoodContainer';
 import TrackingContainer from '../components/containers/TrackingContainer';
 
@@ -15,7 +15,7 @@ function Home() {
 				</p>
 			</div>
 			<TrackingContainer />
-			<FilterContainer />
+			{/* <FilterContainer /> */}
 			<ListFoodContainer />
 		</section>
 	);

@@ -1,11 +1,42 @@
 /* eslint-disable max-len */
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 function Advice() {
+	const dispatch = useDispatch();
+	const token = useSelector((state) => state.auth.token);
+	const [recommendations, setRecommendations] = useState([]);
+	const [isFetching, setIsFetching] = useState(true);
+	const navigate = useNavigate();
+
+	useEffect(() => {
+		const config = {
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
+		};
+		axios
+			.get('/exercises/recommendations', config)
+			.then((res) => {
+				console.log (res)
+				console.log (res.data)
+				console.log (res.data.data)
+				if (res.status === 200) setRecommendations(res.data.data.recommendations);
+			})
+			.finally(() => {
+				setIsFetching(false);
+			});
+	}, [token]);
 	return (
 		<>
 			<section className="px-[6.25%] flex pt-24 justify-between">
 				<div className="w-[51%] tab:w-full ">
 					<h1 className="text-4xl sm:text-mobile-4xl font-bold text-navy">
-						Temukan Jalan Menuju <span className="text-orange">Gaya Hidup Sehat</span> dan{' '}
+						Temukan Jalan Menuju
+						<span className="text-orange">Gaya Hidup Sehat</span>
+						dan
+						{' '}
 						<span className="text-orange">Berat Badan Ideal</span>
 					</h1>
 					<div className="hidden tab:grid place-content-center mt-4">
@@ -25,7 +56,8 @@ function Advice() {
 				<div className="w-[50%] sm:w-full">
 					<div className="mb-6">
 						<h2 className="text-3xl sm:text-mobile-3xl font-bold">
-							Panduan <span className="text-orange"> Makan Sehat</span>
+							Panduan
+							<span className="text-orange"> Makan Sehat</span>
 						</h2>
 						<p className="opacity-90 leading-[30px]">
 							Pelajari cara menyusun rencana makan seimbang yang memberikan nutrisi optimal untuk tubuh Anda.
@@ -74,10 +106,14 @@ function Advice() {
 			<section className="px-[6.25%] pt-20 sm:pt-12 text-navy">
 				<div className="mb-12 sm:mb-8">
 					<h2 className="text-3xl sm:text-mobile-3xl font-bold">
-						Tips <span className="text-orange">Pengendalian</span> Porsi
-					</h2>
+						Tips
+						<span className="text-orange">Pengendalian</span>
+Porsi
+{' '}
+     </h2>
 					<p className="opacity-90 leading-[30px]">
-						Pelajari strategi sederhana untuk mengontrol porsi makan dan menghindari makan berlebihan.{' '}
+						Pelajari strategi sederhana untuk mengontrol porsi makan dan menghindari makan berlebihan.
+						{' '}
 					</p>
 				</div>
 				<div className="grid grid-cols-3 gap-5 tab:grid-cols-2 sm:grid-cols-1">
@@ -116,14 +152,36 @@ function Advice() {
 				<div className="border-[1.5px] border-white-400/60 p-12 tab:p-8 sm:p-6 rounded-[1.25rem]">
 					<div className="mb-12 sm:mb-8 text-center w-[64%] tab:w-[80%] sm:w-[98%] mx-auto">
 						<h2 className="text-3xl sm:text-mobile-3xl font-bold">
-							Rutinitas <span className="text-orange">Aktivitas Fisik</span>
+							Rutinitas
+							<span className="text-orange">Aktivitas Fisik</span>
 						</h2>
 						<p className="opacity-90 leading-[30px]">
 							Temukan cara menyenangkan untuk meningkatkan aktivitas fisik Anda, sesuai dengan preferensi dan gaya hidup Anda.
 						</p>
 					</div>
 					<div className="grid grid-cols-2 gap-5 sm:grid-cols-1">
+					{recommendations.map((recommendation) => (
 						<div className="flex gap-4">
+						<div className="mt-2 sm:mt-1 w-14 sm:w-10 h-14 sm:h-10 grid place-content-center  border-[1.5px] border-white-400/60 rounded-md">
+							<img className="w-9 sm:w-7 h-9 sm:h-7 aspect-square" src= {recommendation.icon || '/advice/kalender.svg'} alt="Icon Latihan" />
+						</div>
+						<div className="w-[85.5%] text-navy ">
+							<h3 className="text-2xl sm:text-mobile-2xl font-semibold">{recommendation.name}</h3>
+							<small>{recommendation.duration}</small>
+							<p className="opacity-90 leading-[30px] sm:leading-[26px] ">
+							{recommendation.description}
+							</p>
+						</div>
+					</div>
+					))}
+						{recommendations.length === 0 && isFetching !== true && (
+				<div className="col-span-4 flex justify-center py-8 items-center">
+					<div className="text-darknavy">
+						<h3 className="text-2xl font-semibold">No Food Found</h3>
+					</div>
+				</div>
+			)}
+						{/* <div className="flex gap-4">
 							<div className="mt-2 sm:mt-1 w-14 sm:w-10 h-14 sm:h-10 grid place-content-center  border-[1.5px] border-white-400/60 rounded-md">
 								<img className="w-9 sm:w-7 h-9 sm:h-7 aspect-square" src="/icons/advice/kalender.svg" alt="Icon Kalender" />
 							</div>
@@ -170,14 +228,15 @@ function Advice() {
 									membantu melibatkan berbagai kelompok otot dan memberikan manfaat kesehatan yang holistik.
 								</p>
 							</div>
-						</div>
+						</div> */}
 					</div>
 				</div>
 			</section>
 			<section className="px-[6.25%] pt-20 sm:pt-12 text-navy">
 				<div className="mb-12 sm:mb-8 w-[75%] sm:w-full">
 					<h2 className="text-3xl sm:text-mobile-3xl font-bold">
-						Gaya <span className="text-orange">Hidup Sehat</span>
+						Gaya
+						<span className="text-orange">Hidup Sehat</span>
 					</h2>
 					<p className="opacity-90 leading-[30px]">
 						Dapatkan wawasan tentang perubahan gaya hidup jangka panjang yang akan membantu Anda mencapai tujuan berat badan Anda.
@@ -219,8 +278,9 @@ function Advice() {
 			<section className="px-[6.25%] py-20 sm:py-12 text-navy">
 				<div className="mb-12 sm:mb-8 w-[75%] sm:w-full">
 					<h2 className="text-3xl sm:text-mobile-3xl font-bold">
-						<span className="text-orange">Dukungan</span> Sosial
-					</h2>
+						<span className="text-orange">Dukungan</span>
+Sosial
+     </h2>
 					<p className="opacity-90 leading-[30px]">
 						Dapatkan wawasan tentang perubahan gaya hidup jangka panjang yang akan membantu Anda mencapai tujuan berat badan Anda.
 					</p>

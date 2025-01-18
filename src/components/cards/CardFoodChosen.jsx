@@ -12,7 +12,9 @@ function NutritionWrap({ name, icon, value }) {
 			<p className="text-navy font-medium opacity-90 sm:text-sm">{name}</p>
 			<div className="flex flex-row justify-center gap-2 items-center">
 				<img className="h-[18px] sm:h-4" src={`/icons/${icon}`} alt={`Icon ${name}`} />
-				<p className="font-semibold text-cyan-900 sm:text-sm">{value}+</p>
+				<p className="font-semibold text-cyan-900 sm:text-sm">
+					{value}
+				</p>
 			</div>
 		</div>
 	);
@@ -88,12 +90,15 @@ function CardFoodChosen() {
 						<p className="text-sm text-slate-500">Makanan Utama</p>
 					</div>
 				</div>
-				{/* <div className="hidden py-2 px-2 rounded-full bg-slate-200 tab:flex flex-row items-center justify-between">
-					<button type="button" className="w-11 sm:w-8 font-bold text-orange-100" onClick={() => hanldeMinPorsi()}>
+				{/* <div className="hidden py-2 px-2 rounded-full bg-slate-200 tab
+				:flex flex-row items-center justify-between">
+					<button type="button" className="w-11 sm:w-8 font-bold text-orange-100"
+					onClick={() => hanldeMinPorsi()}>
 						-
 					</button>
 					<p>{porsi}</p>
-					<button type="button" className="w-11 sm:w-8 font-bold text-orange-100" onClick={() => hanldePlusPorsi()}>
+					<button type="button" className="w-11 sm:w-8 font-bold text-orange-100"
+					onClick={() => hanldePlusPorsi()}>
 						+
 					</button>
 				</div> */}
