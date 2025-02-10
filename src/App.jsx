@@ -14,6 +14,7 @@ import ChangePassword from './pages/ChangePassword';
 import Login from './pages/Login';
 import NotFound from './pages/NotFound';
 import SignUp from './pages/SignUp';
+import Verification from './pages/Verification';
 import Favorite from './pages/Favorite';
 import 'react-toastify/dist/ReactToastify.css';
 import ForgetPassword from './pages/ForgetPassword';
@@ -96,6 +97,7 @@ function App() {
 				/>
 				<Route path="/login" element={<Login />} />
 				<Route path="/signup" element={<SignUp />} />
+				<Route path="/verification" element={<Verification />} />
 				<Route
 					path="/advice"
 					element={

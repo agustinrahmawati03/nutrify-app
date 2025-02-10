@@ -66,7 +66,8 @@ function SignUp() {
             .then((res) => {
                 if (res.status === 201) {
                     toast.success(res.data.message, { position: 'bottom-right' });
-                    navigate('/login');
+                    sessionStorage.setItem ('email', formData.email);
+                    navigate('/verification');
                 } else {
                     toast.error(res.data.message ?? 'Something went wrong', { position: 'bottom-right' });
                 }
