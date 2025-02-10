@@ -163,13 +163,19 @@ Porsi
 					{recommendations.map((recommendation) => (
 						<div className="flex gap-4">
 						<div className="mt-2 sm:mt-1 w-14 sm:w-10 h-14 sm:h-10 grid place-content-center  border-[1.5px] border-white-400/60 rounded-md">
-							<img className="w-9 sm:w-7 h-9 sm:h-7 aspect-square" src= {recommendation.icon || '/advice/kalender.svg'} alt="Icon Latihan" />
+							<img className="w-9 sm:w-7 h-9 sm:h-7 aspect-square" src={recommendation.icon || '/advice/kalender.svg'} alt="Icon Latihan" />
 						</div>
 						<div className="w-[85.5%] text-navy ">
 							<h3 className="text-2xl sm:text-mobile-2xl font-semibold">{recommendation.name}</h3>
 							<small>{recommendation.duration}</small>
 							<p className="opacity-90 leading-[30px] sm:leading-[26px] ">
 							{recommendation.description}
+							</p>
+							<p className="opacity-90 leading-[30px] sm:leading-[26px] ">
+							{recommendation.benefit ? `Manfaat: ${recommendation.benefit}` : ''}
+							</p>
+							<p className="opacity-90 leading-[30px] sm:leading-[26px] ">
+							{recommendation.tips ? `Tips: ${recommendation.tips}` : ''}
 							</p>
 						</div>
 					</div>
