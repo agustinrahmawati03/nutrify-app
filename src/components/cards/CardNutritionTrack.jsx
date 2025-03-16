@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 
 function CardNutritionTrack({ name, icon, percentase, value, target, text }) {
+	const textcolor =  value > target? "text-red" : "text-green";
 	return (
 		<div className="h-36 border border-slate-300 rounded-xl px-3">
 			<div className="flex flex-row h-20 border-b border-slate-200 justify-between items-center">
@@ -13,7 +14,7 @@ function CardNutritionTrack({ name, icon, percentase, value, target, text }) {
 
 			<p className="text-base font-medium text-gray-400 mt-5 xl:mt-4">
 				{text}{' '}
-				<span className="text-green font-semibold">
+				<span className= {`${textcolor} font-semibold`} >
 					{value}/{target}
 				</span>
 			</p>
