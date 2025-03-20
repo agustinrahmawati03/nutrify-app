@@ -52,6 +52,49 @@ function Advice() {
 					<img src="/images/ilustrasi-advice.svg" alt="" />
 				</div>
 			</section>
+
+			<section className="px-[6.25%] pt-20 sm:pt-12 text-navy ">
+				<div className="border-[1.5px] border-white-400/60 p-12 tab:p-8 sm:p-6 rounded-[1.25rem]">
+					<div className="mb-12 sm:mb-8 text-center w-[64%] tab:w-[80%] sm:w-[98%] mx-auto">
+						<h2 className="text-3xl sm:text-mobile-3xl font-bold">
+							Rutinitas
+							<span className="text-orange">Aktivitas Fisik</span>
+						</h2>
+						<p className="opacity-90 leading-[30px]">
+							Temukan cara menyenangkan untuk meningkatkan aktivitas fisik Anda, sesuai dengan preferensi dan gaya hidup Anda.
+						</p>
+					</div>
+					<div className="grid grid-cols-2 gap-5 sm:grid-cols-1">
+					{recommendations.map((recommendation) => (
+						<div className="flex gap-4">
+						<div className="mt-2 sm:mt-1 w-14 sm:w-10 h-14 sm:h-10 grid place-content-center  border-[1.5px] border-white-400/60 rounded-md">
+							<img className="w-9 sm:w-7 h-9 sm:h-7 aspect-square" src={recommendation.icon || '/advice/kalender.svg'} alt="Icon Latihan" />
+						</div>
+						<div className="w-[85.5%] text-navy ">
+							<h3 className="text-2xl sm:text-mobile-2xl font-semibold">{recommendation.name}</h3>
+							<small>{recommendation.duration}</small>
+							<p className="opacity-90 leading-[30px] sm:leading-[26px] ">
+							{recommendation.description}
+							</p>
+							<p className="opacity-90 leading-[30px] sm:leading-[26px] ">
+							{recommendation.benefit ? `Manfaat: ${recommendation.benefit}` : ''}
+							</p>
+							<p className="opacity-90 leading-[30px] sm:leading-[26px] ">
+							{recommendation.tips ? `Tips: ${recommendation.tips}` : ''}
+							</p>
+						</div>
+					</div>
+					))}
+						{recommendations.length === 0 && isFetching !== true && (
+				<div className="col-span-4 flex justify-center py-8 items-center">
+					<div className="text-darknavy">
+						<h3 className="text-2xl font-semibold">No exercises Found</h3>
+					</div>
+				</div>
+			)}
+					</div>
+				</div>
+			</section>
 			<section className="px-[6.25%] pt-20 sm:pt-12 text-navy flex gap-5 sm:flex-col">
 				<div className="w-[50%] sm:w-full">
 					<div className="mb-6">
@@ -145,96 +188,6 @@ Porsi
 							Makan dengan penuh perhatian dan nikmati setiap suapan. Ini membantu mengurangi kecenderungan untuk makan berlebihan
 							secara tidak sadar.
 						</p>
-					</div>
-				</div>
-			</section>
-			<section className="px-[6.25%] pt-20 sm:pt-12 text-navy ">
-				<div className="border-[1.5px] border-white-400/60 p-12 tab:p-8 sm:p-6 rounded-[1.25rem]">
-					<div className="mb-12 sm:mb-8 text-center w-[64%] tab:w-[80%] sm:w-[98%] mx-auto">
-						<h2 className="text-3xl sm:text-mobile-3xl font-bold">
-							Rutinitas
-							<span className="text-orange">Aktivitas Fisik</span>
-						</h2>
-						<p className="opacity-90 leading-[30px]">
-							Temukan cara menyenangkan untuk meningkatkan aktivitas fisik Anda, sesuai dengan preferensi dan gaya hidup Anda.
-						</p>
-					</div>
-					<div className="grid grid-cols-2 gap-5 sm:grid-cols-1">
-					{recommendations.map((recommendation) => (
-						<div className="flex gap-4">
-						<div className="mt-2 sm:mt-1 w-14 sm:w-10 h-14 sm:h-10 grid place-content-center  border-[1.5px] border-white-400/60 rounded-md">
-							<img className="w-9 sm:w-7 h-9 sm:h-7 aspect-square" src={recommendation.icon || '/advice/kalender.svg'} alt="Icon Latihan" />
-						</div>
-						<div className="w-[85.5%] text-navy ">
-							<h3 className="text-2xl sm:text-mobile-2xl font-semibold">{recommendation.name}</h3>
-							<small>{recommendation.duration}</small>
-							<p className="opacity-90 leading-[30px] sm:leading-[26px] ">
-							{recommendation.description}
-							</p>
-							<p className="opacity-90 leading-[30px] sm:leading-[26px] ">
-							{recommendation.benefit ? `Manfaat: ${recommendation.benefit}` : ''}
-							</p>
-							<p className="opacity-90 leading-[30px] sm:leading-[26px] ">
-							{recommendation.tips ? `Tips: ${recommendation.tips}` : ''}
-							</p>
-						</div>
-					</div>
-					))}
-						{recommendations.length === 0 && isFetching !== true && (
-				<div className="col-span-4 flex justify-center py-8 items-center">
-					<div className="text-darknavy">
-						<h3 className="text-2xl font-semibold">No Food Found</h3>
-					</div>
-				</div>
-			)}
-						{/* <div className="flex gap-4">
-							<div className="mt-2 sm:mt-1 w-14 sm:w-10 h-14 sm:h-10 grid place-content-center  border-[1.5px] border-white-400/60 rounded-md">
-								<img className="w-9 sm:w-7 h-9 sm:h-7 aspect-square" src="/icons/advice/kalender.svg" alt="Icon Kalender" />
-							</div>
-							<div className="w-[85.5%] text-navy ">
-								<h3 className="text-2xl sm:text-mobile-2xl font-semibold">Integrasikan ke Dalam Rutinitas Harian</h3>
-								<p className="opacity-90 leading-[30px] sm:leading-[26px] ">
-									Jadwalkan waktu untuk beraktivitas fisik seperti janji dokter atau pertemuan bisnis. Ini membantu membuat
-									aktivitas fisik menjadi bagian alami dari rutinitas harian.
-								</p>
-							</div>
-						</div>
-						<div className="flex gap-4">
-							<div className="mt-2 sm:mt-1 w-14 sm:w-10 h-14 sm:h-10 grid place-content-center  border-[1.5px] border-white-400/60 rounded-md">
-								<img className="w-9 sm:w-7 h-9 sm:h-7 aspect-square" src="/icons/advice/konsisten.svg" alt="Icon Konsisten" />
-							</div>
-							<div className="w-[85.5%] text-navy ">
-								<h3 className="text-2xl sm:text-mobile-2xl font-semibold">Bertahap dan Konsisten</h3>
-								<p className="opacity-90 leading-[30px] sm:leading-[26px] ">
-									Mulailah dengan tingkat intensitas yang sesuai dengan kondisi fisik Anda, dan tingkatkan secara bertahap.
-									Konsistensi lebih penting daripada intensitas yang tinggi.
-								</p>
-							</div>
-						</div>
-						<div className="flex gap-4">
-							<div className="mt-2 sm:mt-1 w-14 sm:w-10 h-14 sm:h-10 grid place-content-center  border-[1.5px] border-white-400/60 rounded-md">
-								<img className="w-9 sm:w-7 h-9 sm:h-7 aspect-square" src="/icons/advice/aktivitas.svg" alt="Icon aktivitas" />
-							</div>
-							<div className="w-[85.5%] text-navy ">
-								<h3 className="text-2xl sm:text-mobile-2xl font-semibold">Pilih Aktivitas yang Anda Nikmati</h3>
-								<p className="opacity-90 leading-[30px] sm:leading-[26px] ">
-									Temukan jenis olahraga atau aktivitas fisik yang Anda nikmati, apakah itu berjalan, bersepeda, berenang, atau
-									rutinitas kebugaran di rumah. Ini membuatnya lebih mungkin untuk dijalani secara konsisten.
-								</p>
-							</div>
-						</div>
-						<div className="flex gap-4">
-							<div className="mt-2 sm:mt-1 w-14 sm:w-10 h-14 sm:h-10 grid place-content-center  border-[1.5px] border-white-400/60 rounded-md">
-								<img className="w-9 sm:w-7 h-9 sm:h-7 aspect-square" src="/icons/advice/hobby.svg" alt="Icon hobby" />
-							</div>
-							<div className="w-[85.5%] text-navy ">
-								<h3 className="text-2xl sm:text-mobile-2xl font-semibold">Jelajahi Berbagai Aktivitas</h3>
-								<p className="opacity-90 leading-[30px] sm:leading-[26px] ">
-									Cobalah berbagai jenis aktivitas fisik untuk mencegah kebosanan dan mempertahankan motivasi. Aktivitas bervariasi
-									membantu melibatkan berbagai kelompok otot dan memberikan manfaat kesehatan yang holistik.
-								</p>
-							</div>
-						</div> */}
 					</div>
 				</div>
 			</section>
