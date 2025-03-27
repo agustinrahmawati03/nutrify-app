@@ -65,7 +65,7 @@ function AppbarBeforeLogin() {
 								Artikel
 							</Link>
 						</li>
-						<li>
+						{/* <li>
 							<a
 								href="https://github.com/Nutrify-Dicoding"
 								target="_blank"
@@ -73,7 +73,7 @@ function AppbarBeforeLogin() {
 							>
 								Tentang Kami
 							</a>
-						</li>
+						</li> */}
 						<li>
 							<div className="md:ms-2 pt-2 hidden sm:flex flex-row gap-2">
 								<Link to="/login" onClick={() => setNavbarOpen(!navbarOpen)}>
