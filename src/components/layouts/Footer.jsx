@@ -11,24 +11,20 @@ function Footer() {
 					<Link to="/">Home</Link>
 					<span className="w-[6px] h-[6px] bg-white rounded-full" />
 					<Link to="/advice">Artikel</Link>
-					<span className="w-[6px] h-[6px] bg-white rounded-full" />
-					<a href="https://github.com/Nutrify-Dicoding" target="_blank">
-						Tentang Kami
-					</a>
 				</div>
 				<div className="flex flex-row items-center justify-center gap-3">
-					<a href="#">
+					{/* <a href="#">
 						<img src="/icons/facebook.svg" alt="" />
 					</a>
 					<a href="#">
 						<img src="/icons/instagram.svg" alt="" />
 					</a>
 					<img src="/icons/x-twitter.svg" alt="" />
-					<img src="/icons/envelope-regular.svg" alt="" />
+					<img src="/icons/envelope-regular.svg" alt="" /> */}
 				</div>
 			</div>
 			<div className="text-sm w-full md:flex-col bg-darknavy flex flex-row justify-between px-[6.25%] py-[1.125rem] items-center text-white-400">
-				<p className="text-center opacity-80">2023@ All rights reserved. Design by Nutrify team’s </p>
+				<p className="text-center opacity-80">2025@ All rights reserved. </p>
 				<p className="opacity-80">
 					All data reserved from{' '}
 					<a href="https://spoonacular.com/" className="hover:underline">
