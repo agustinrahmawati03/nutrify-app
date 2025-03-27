@@ -84,9 +84,9 @@ function LandingPage() {
 			<section className="px-[6.25%] py-[5rem] sm:py-12">
 				<div className="text-navy mb-12 sm:mb-8">
 					<h2 className="text-4xl font-bold tab:text-mobile-4xl">
-						Fitur <span className="text-orange">Unggulan</span> Kami
+						Fitur <span className="text-orange">Unggulan</span> 
 					</h2>
-					<p className="opacity-90 sm:leading-7">Temukan keunggulan kami dalam memfasilitasi perjalanan kesehatan Anda</p>
+					<p className="opacity-90 sm:leading-7">Temukan keunggulan Nutrisiku ialah dalam memfasilitasi perjalanan kesehatan Anda</p>
 				</div>
 				<div className="grid grid-cols-4 gap-5 lg:grid-cols-3 tab:grid-cols-2 sm:grid-cols-1">
 					<div className="flex flex-col justify-between border-[1.5px] border-navy/80 rounded-[10px] text-navy overflow-hidden">
@@ -153,7 +153,7 @@ function LandingPage() {
 						<h2 className="text-4xl font-bold tab:text-mobile-4xl">
 							Pencapaian <span className="text-orange">Nutrisi Seimbang</span>
 						</h2>
-						<p className="opacity-90 sm:leading-7">Temukan keberagaman nutrisi yang akan kami kalkulasi untuk Anda</p>
+						<p className="opacity-90 sm:leading-7">Temukan keberagaman nutrisi yang akan dikalkulasi untuk Anda</p>
 					</div>
 					<div className="grid grid-cols-4 gap-5 tab:grid-cols-2">
 						<div className="flex flex-col items-center text-navy px-6 py-5 text-center">
@@ -184,7 +184,7 @@ function LandingPage() {
 					<h2 className="text-4xl font-bold tab:text-mobile-4xl">
 						Eksplorasi <span className="text-orange">Ragam Makanan</span> Sehat
 					</h2>
-					<p className="opacity-90 sm:leading-7">Temukan kelezatan nutrisi dalam setiap hidangan kami.</p>
+					<p className="opacity-90 sm:leading-7">Temukan kelezatan nutrisi dalam setiap hidangan.</p>
 				</div>
 				<div className="grid my-10 tab:grid-cols-3 md:grid-cols-2 grid-cols-4 gap-5 sm:gap-3">
 					{foods.slice(0, 4).map((item, index) => (
