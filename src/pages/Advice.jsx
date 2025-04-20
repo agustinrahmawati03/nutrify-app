@@ -245,23 +245,26 @@ Sosial
 					</p>
 				</div>
 				<div className="flex flex-col gap-5">
+					{recommendations.map((recommendation) => (
 					<div className="flex border-[1px] border-white-400 rounded-lg overflow-hidden sm:flex-col">
 						<div className="w-[20%] tab:w-[35%] sm:w-full sm:h-[200px]">
 							<img
 								className="w-full h-full object-cover sm:object-center"
-								src="/images/bagikan-tujuan.png"
+								src={recommendation.icon || '/advice/kalender.svg'}
 								alt="Ilustrasi Bagikan Tujuan"
 							/>
 						</div>
 						<div className="p-6 w-[80%] tab:w-[65%] sm:w-full">
-							<h3 className="text-xl font-semibold mb-[10px]">Bagikan Tujuan Anda</h3>
+							<h3 className="text-xl font-semibold mb-[10px]">{recommendation.name}</h3>
 							<p className="opacity-90 leading-[30px]">
 								Berbicaralah secara terbuka dengan teman, keluarga, atau teman olahraga tentang tujuan penurunan berat badan Anda.
 								Mendiskusikan tujuan Anda membantu menciptakan akunabilitas dan dukungan mereka dapat memberikan motivasi tambahan.
 							</p>
 						</div>
 					</div>
-					<div className="flex border-[1px] border-white-400 rounded-lg overflow-hidden sm:flex-col">
+					))}
+					
+					{/* <div className="flex border-[1px] border-white-400 rounded-lg overflow-hidden sm:flex-col">
 						<div className="w-[20%] tab:w-[35%] sm:w-full sm:h-[200px]">
 							<img className="w-full h-full object-cover sm:object-center" src="/images/komunitas.png" alt="Ilustrasi Komunitas" />
 						</div>
@@ -286,7 +289,7 @@ Sosial
 								bersama-sama.
 							</p>
 						</div>
-					</div>
+					</div> */}
 				</div>
 			</section>
 		</>
