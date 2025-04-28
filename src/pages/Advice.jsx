@@ -34,18 +34,21 @@ function Advice() {
 				<div className="w-[51%] tab:w-full ">
 					<h1 className="text-4xl sm:text-mobile-4xl font-bold text-navy">
 						Temukan Jalan Menuju
-						<span className="text-orange">Gaya Hidup Sehat</span>
+						<span className="text-orange"> Gaya Hidup Sehat </span>
 						dan
 						{' '}
-						<span className="text-orange">Berat Badan Ideal</span>
+						<span className="text-orange"> Berat Badan Ideal</span>
 					</h1>
 					<div className="hidden tab:grid place-content-center mt-4">
 						<img src="/images/ilustrasi-advice.svg" alt="" />
 					</div>
 					<p className="text-navy opacity-80 mt-4 leading-[30px]">
-						Apakah Anda sedang mencari panduan praktis untuk mencapai berat badan yang sehat dan optimal? Selamat, Anda berada di tempat
-						yang tepat! Halaman ini dirancang khusus untuk memberikan saran-saran berharga yang akan membantu Anda mengelola berat badan
-						dengan cara yang efektif dan berkelanjutan.
+					Dari perhitungan BMI, kami menemukan bahwa status BMI Anda saat ini 
+					berada di bawah normal. Untuk mencapai status BMI normal, Anda perlu
+					meningkatkan BMI Anda ke rentang 18,5-24,9. Dengan meningkatkan asupan 
+					nutrisi yang seimbang dan melakukan aktivitas fisik yang teratur, Anda 
+					dapat memperbaiki status BMI dan meningkatkan kesehatan tubuh Anda. Berikut 
+					beberapa saran yang dapat membantu Anda mencapai tujuan tersebut :
 					</p>
 				</div>
 				<div className="w-[48%] grid place-content-center tab:hidden">
@@ -53,7 +56,59 @@ function Advice() {
 				</div>
 			</section>
 
-			<section className="px-[6.25%] pt-20 sm:pt-12 text-navy ">
+			<section className="px-[6.25%] pt-20 sm:pt-12 text-navy">
+				<div className="mb-12 sm:mb-8 w-[75%] sm:w-full">
+				<h2 className="text-3xl sm:text-mobile-3xl font-bold">
+							Rutinitas
+							<span className="text-orange"> Aktivitas Fisik</span>
+						</h2>
+						<p className="opacity-90 leading-[30px]">
+							Temukan cara menyenangkan untuk meningkatkan aktivitas fisik Anda, sesuai dengan preferensi dan gaya hidup Anda.
+						</p>
+				</div>
+				<div className="flex flex-col gap-5">
+					{recommendations.map((recommendation) => (
+					<div className="flex border-[1px] border-white-400 rounded-lg overflow-hidden sm:flex-col">
+						<div className="w-[20%] tab:w-[35%] sm:h-[200px]">
+							<img
+								className="w-[270px] h-[230px] sm:object-center"
+								src={recommendation.icon || '/advice/kalender.svg'}
+								alt="Ilustrasi Bagikan Tujuan"
+							/>
+						</div>
+						<div className="p-6 w-[80%] tab:w-[65%] sm:w-full">
+							<h3 className="text-xl font-semibold mb-[10px]">{recommendation.name}</h3>
+							<small>{recommendation.duration}</small>
+							<p className="opacity-90 leading-[30px] sm:leading-[26px] ">
+							{recommendation.description}
+							</p>
+							<p className="opacity-90 leading-[30px] sm:leading-[26px] ">
+							{recommendation.benefit ? `Manfaat: ${recommendation.benefit}` : ''}
+							</p>
+							<p className="opacity-90 leading-[30px] sm:leading-[26px] ">
+							{recommendation.tips ? `Tips: ${recommendation.tips}` : ''}
+							</p>
+						</div>
+					</div>
+					))}
+					
+					{/* <div className="flex border-[1px] border-white-400 rounded-lg overflow-hidden sm:flex-col">
+						<div className="w-[20%] tab:w-[35%] sm:w-full sm:h-[200px]">
+							<img className="w-full h-full object-cover sm:object-center" src="/images/komunitas.png" alt="Ilustrasi Komunitas" />
+						</div>
+						<div className="p-6 w-[80%] tab:w-[65%] sm:w-full">
+							<h3 className="text-xl font-semibold mb-[10px]">Gabung Komunitas Sehat</h3>
+							<p className="opacity-90 leading-[30px]">
+								Bergabunglah dengan kelompok atau komunitas online yang memiliki tujuan serupa. Melalui pertukaran pengalaman dan
+								dukungan di platform tersebut, Anda dapat memperoleh inspirasi baru, tips, dan rasa solidaritas dalam perjalanan
+								penurunan berat badan Anda.
+							</p>
+						</div>
+					</div>
+					*/}
+				</div>
+			</section>
+			{/* <section className="px-[6.25%] pt-20 sm:pt-12 text-navy ">
 				<div className="border-[1.5px] border-white-400/60 p-12 tab:p-8 sm:p-6 rounded-[1.25rem]">
 					<div className="mb-12 sm:mb-8 text-center w-[64%] tab:w-[80%] sm:w-[98%] mx-auto">
 						<h2 className="text-3xl sm:text-mobile-3xl font-bold">
@@ -94,8 +149,8 @@ function Advice() {
 			)}
 					</div>
 				</div>
-			</section>
-			<section className="px-[6.25%] pt-20 sm:pt-12 text-navy flex gap-5 sm:flex-col">
+			</section> */}
+			{/* <section className="px-[6.25%] pt-20 sm:pt-12 text-navy flex gap-5 sm:flex-col">
 				<div className="w-[50%] sm:w-full">
 					<div className="mb-6">
 						<h2 className="text-3xl sm:text-mobile-3xl font-bold">
@@ -145,15 +200,15 @@ function Advice() {
 						</div>
 					</div>
 				</div>
-			</section>
-			<section className="px-[6.25%] pt-20 sm:pt-12 text-navy">
+			</section> */}
+			{/* <section className="px-[6.25%] pt-20 sm:pt-12 text-navy">
 				<div className="mb-12 sm:mb-8">
 					<h2 className="text-3xl sm:text-mobile-3xl font-bold">
 						Tips
 						<span className="text-orange">Pengendalian</span>
-Porsi
-{' '}
-     </h2>
+						Porsi
+						{' '}
+    					</h2>
 					<p className="opacity-90 leading-[30px]">
 						Pelajari strategi sederhana untuk mengontrol porsi makan dan menghindari makan berlebihan.
 						{' '}
@@ -190,12 +245,12 @@ Porsi
 						</p>
 					</div>
 				</div>
-			</section>
-			<section className="px-[6.25%] pt-20 sm:pt-12 text-navy">
+			</section> */}
+			<section className="px-[6.25%] py-20 sm:py-12 text-navy">
 				<div className="mb-12 sm:mb-8 w-[75%] sm:w-full">
 					<h2 className="text-3xl sm:text-mobile-3xl font-bold">
 						Gaya
-						<span className="text-orange">Hidup Sehat</span>
+						<span className="text-orange"> Hidup Sehat</span>
 					</h2>
 					<p className="opacity-90 leading-[30px]">
 						Dapatkan wawasan tentang perubahan gaya hidup jangka panjang yang akan membantu Anda mencapai tujuan berat badan Anda.
@@ -232,64 +287,6 @@ Porsi
 							</p>
 						</div>
 					</div>
-				</div>
-			</section>
-			<section className="px-[6.25%] py-20 sm:py-12 text-navy">
-				<div className="mb-12 sm:mb-8 w-[75%] sm:w-full">
-					<h2 className="text-3xl sm:text-mobile-3xl font-bold">
-						<span className="text-orange">Dukungan</span>
-Sosial
-     </h2>
-					<p className="opacity-90 leading-[30px]">
-						Dapatkan wawasan tentang perubahan gaya hidup jangka panjang yang akan membantu Anda mencapai tujuan berat badan Anda.
-					</p>
-				</div>
-				<div className="flex flex-col gap-5">
-					{recommendations.map((recommendation) => (
-					<div className="flex border-[1px] border-white-400 rounded-lg overflow-hidden sm:flex-col">
-						<div className="w-[20%] tab:w-[35%] sm:w-full sm:h-[200px]">
-							<img
-								className="w-full h-full object-cover sm:object-center"
-								src={recommendation.icon || '/advice/kalender.svg'}
-								alt="Ilustrasi Bagikan Tujuan"
-							/>
-						</div>
-						<div className="p-6 w-[80%] tab:w-[65%] sm:w-full">
-							<h3 className="text-xl font-semibold mb-[10px]">{recommendation.name}</h3>
-							<p className="opacity-90 leading-[30px]">
-								Berbicaralah secara terbuka dengan teman, keluarga, atau teman olahraga tentang tujuan penurunan berat badan Anda.
-								Mendiskusikan tujuan Anda membantu menciptakan akunabilitas dan dukungan mereka dapat memberikan motivasi tambahan.
-							</p>
-						</div>
-					</div>
-					))}
-					
-					{/* <div className="flex border-[1px] border-white-400 rounded-lg overflow-hidden sm:flex-col">
-						<div className="w-[20%] tab:w-[35%] sm:w-full sm:h-[200px]">
-							<img className="w-full h-full object-cover sm:object-center" src="/images/komunitas.png" alt="Ilustrasi Komunitas" />
-						</div>
-						<div className="p-6 w-[80%] tab:w-[65%] sm:w-full">
-							<h3 className="text-xl font-semibold mb-[10px]">Gabung Komunitas Sehat</h3>
-							<p className="opacity-90 leading-[30px]">
-								Bergabunglah dengan kelompok atau komunitas online yang memiliki tujuan serupa. Melalui pertukaran pengalaman dan
-								dukungan di platform tersebut, Anda dapat memperoleh inspirasi baru, tips, dan rasa solidaritas dalam perjalanan
-								penurunan berat badan Anda.
-							</p>
-						</div>
-					</div>
-					<div className="flex border-[1px] border-white-400 rounded-lg overflow-hidden sm:flex-col">
-						<div className="w-[20%] tab:w-[35%] sm:w-full sm:h-[200px]">
-							<img className="w-full h-full object-cover sm:object-center" src="/images/keluarga.png" alt="Ilustrasi Keluarga" />
-						</div>
-						<div className="p-6 w-[80%] tab:w-[65%] sm:w-full">
-							<h3 className="text-xl font-semibold mb-[10px]">Libatkan Keluarga</h3>
-							<p className="opacity-90 leading-[30px]">
-								Ajak keluarga Anda untuk ikut serta dalam perubahan gaya hidup sehat. Melibatkan keluarga tidak hanya menciptakan
-								lingkungan yang mendukung di rumah tetapi juga membuat perjalanan penurunan berat badan menjadi pengalaman positif
-								bersama-sama.
-							</p>
-						</div>
-					</div> */}
 				</div>
 			</section>
 		</>
