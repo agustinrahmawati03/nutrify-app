@@ -31,6 +31,8 @@ function Advice() {
 	}, [token]);
 	return (
 		<>
+		{/* BMI Kurang */}
+		{userInfo.bmi < 18.5 && (
 			<section className="px-[6.25%] flex pt-24 justify-between">
 				<div className="w-[51%] tab:w-full ">
 					<h1 className="text-4xl sm:text-mobile-4xl font-bold text-navy">
@@ -56,6 +58,65 @@ function Advice() {
 					<img src="/images/ilustrasi-advice.svg" alt="" />
 				</div>
 			</section>
+		)}
+
+			{/* BMI Normal */}
+			{(userInfo.bmi  >= 18.5 && userInfo.bmi < 24.9) && (
+			<section className="px-[6.25%] flex pt-24 justify-between">
+				<div className="w-[51%] tab:w-full ">
+					<h1 className="text-4xl sm:text-mobile-4xl font-bold text-navy">
+						Temukan Jalan Menuju
+						<span className="text-orange"> Gaya Hidup Sehat </span>
+						dan
+						{' '}
+						<span className="text-orange"> Berat Badan Ideal</span>
+					</h1>
+					<div className="hidden tab:grid place-content-center mt-4">
+						<img src="/images/ilustrasi-advice.svg" alt="" />
+					</div>
+					<p className="text-navy opacity-80 mt-4 leading-[30px]">
+					Selamat! BMI Anda normal! Untuk menjaga kesehatan, teruslah makan 
+					makanan seimbang dan lakukan olahraga teratur. Dengan begitu, Anda dapat mempertahankan 
+					kesehatan tubuh dan meningkatkan kualitas hidup. Untuk terus memiliki status BMI Normal Anda dapat melakukan aktivitas fisik.
+					Berikut beberapa saran yang dapat membantu Anda untuk menjaga keseimbangan nutrisi :
+					</p>
+				</div>
+				<div className="w-[48%] grid place-content-center tab:hidden">
+					<img src="/images/ilustrasi-advice.svg" alt="" />
+				</div>
+			</section>
+			)}
+
+			{/* BMI Berlebih */}
+			{userInfo.bmi  >= 25 && (
+			<section className="px-[6.25%] flex pt-24 justify-between">
+				<div className="w-[51%] tab:w-full ">
+					<h1 className="text-4xl sm:text-mobile-4xl font-bold text-navy">
+						Temukan Jalan Menuju
+						<span className="text-orange"> Gaya Hidup Sehat </span>
+						dan
+						{' '}
+						<span className="text-orange"> Berat Badan Ideal</span>
+					</h1>
+					<div className="hidden tab:grid place-content-center mt-4">
+						<img src="/images/ilustrasi-advice.svg" alt="" />
+					</div>
+					<p className="text-navy opacity-80 mt-4 leading-[30px]">
+					Dari perhitungan BMI, kami menemukan bahwa status BMI Anda saat 
+					ini berada di atas normal, untuk mencapai status BMI normal, Anda perlu
+					menurunkan BMI Anda ke rentang 18,5-24,9, tapi jangan khawatir! Dengan mengubah 
+					pola makan dan meningkatkan aktivitas fisik, Anda bisa
+					memperbaiki kesehatan dan mencapai berat badan yang seimbang. Perubahan kecil yang 
+					konsisten dapat membantu Anda mencapai tujuan ini. Berikut 
+					beberapa saran yang dapat membantu Anda mencapai tujuan tersebut:
+					</p>
+					
+				</div>
+				<div className="w-[48%] grid place-content-center tab:hidden">
+					<img src="/images/ilustrasi-advice.svg" alt="" />
+				</div>
+			</section>
+			)}
 
 			<section className="px-[6.25%] pt-20 sm:pt-12 text-navy">
 				<div className="mb-12 sm:mb-8 w-[75%] sm:w-full">
@@ -72,7 +133,7 @@ function Advice() {
 					<div className="flex border-[1px] border-white-400 rounded-lg overflow-hidden sm:flex-col">
 						<div className="w-[20%] tab:w-[35%] sm:h-[200px]">
 							<img
-								className="w-[270px] h-[230px] sm:object-center"
+								className="w-[260px] h-[230px] sm:object-center"
 								src={recommendation.icon || '/advice/kalender.svg'}
 								alt="Ilustrasi Bagikan Tujuan"
 							/>
@@ -247,7 +308,7 @@ function Advice() {
 					</div>
 				</div>
 			</section> */}
-			<section className="px-[6.25%] pt-20 sm:py-12 text-navy">
+			{/* <section className="px-[6.25%] pt-20 sm:py-12 text-navy">
 				<div className="mb-12 sm:mb-8 w-[75%] sm:w-full">
 					<h2 className="text-3xl sm:text-mobile-3xl font-bold">
 						Gaya
@@ -289,16 +350,16 @@ function Advice() {
 						</div>
 					</div>
 				</div>
-			</section>
+			</section> */}
 
 			<section className="px-[6.25%] py-20 sm:pt-12 text-navy">
 				<div className="mb-12 sm:mb-8">
 					<h2 className="text-3xl sm:text-mobile-3xl font-bold">
-						Tips
-						<span className="text-orange">Pengendalian</span> Porsi
+						Gaya
+						<span className="text-orange"> Hidup Sehat</span>
      				</h2>
 					<p className="opacity-90 leading-[30px]">
-						Pelajari strategi sederhana untuk mengontrol porsi makan dan menghindari makan berlebihan.
+					Dapatkan wawasan tentang perubahan gaya hidup jangka panjang yang akan membantu Anda mencapai tujuan berat badan Anda.
 						{' '}
 					</p>
 				</div>
@@ -307,31 +368,32 @@ function Advice() {
 					<div className="grid grid-cols-3 gap-5 tab:grid-cols-2 sm:grid-cols-1">
 						<div className="p-6 shadow-[0px_0px_44px_-5px_rgba(0,0,0,0.10)] rounded-[10px]">
 							<div className="flex justify-between pb-2 mb-3 border-b-[1px] border-white-300">
-								<h3 className="text-xl font-semibold">Piring Kecil</h3>
-								<img src="/icons/advice/plate.svg" alt="Icon Piring" />
+								<h3 className="text-xl font-semibold">Rencana Menu Makan</h3>
+								<img src="/icons/advice/eat.svg" alt="Icon Makan"/>
 							</div>
 							<p className="opacity-90 leading-[30px]">
-								Gunakan piring yang lebih kecil untuk membantu mengontrol porsi makan. Ini memberi sinyal otak bahwa porsi sudah cukup.
+							Untuk meningkatkan asupan kalori, cobalah makan lebih sering dengan porsi kecil. 
+							Ini dapat membantu meningkatkan nafsu makan dan memberikan tubuh Anda nutrisi yang cukup.
 							</p>
 						</div>
 						<div className="p-6 shadow-[0px_0px_44px_-5px_rgba(0,0,0,0.10)] rounded-[10px]">
 							<div className="flex justify-between pb-2 mb-3 border-b-[1px] border-white-300">
-								<h3 className="text-xl font-semibold">Makanan Berkualitas</h3>
-								<img src="/icons/advice/quality.svg" alt="Icon Berkualitas" />
+								<h3 className="text-xl font-semibold">Makanan Kaya Nutrisi</h3>
+								<img src="/icons/advice/varietas.svg" alt="Icon Vegan"/>
 							</div>
 							<p className="opacity-90 leading-[30px]">
-								Pilih makanan yang kaya nutrisi sehingga Anda merasa kenyang lebih lama. Hindari camilan tinggi gula dan lemak yang tidak
-								memberikan rasa kenyang.
+							Pastikan Anda memilih makanan yang kaya akan protein, karbohidrat kompleks, dan lemak sehat. 
+							Contoh makanan yang baik untuk dikonsumsi adalah daging, ikan, telur, sayuran, dan buah-buahan.
 							</p>
 						</div>
 						<div className="p-6 shadow-[0px_0px_44px_-5px_rgba(0,0,0,0.10)] rounded-[10px] tab:col-span-2 sm:col-span-1">
 							<div className="flex justify-between pb-2 mb-3 border-b-[1px] border-white-300">
-								<h3 className="text-xl font-semibold">Pola Makan Sadar</h3>
-								<img src="/icons/advice/eat.svg" alt="Icon Makan" />
+								<h3 className="text-xl font-semibold">Tidur yang cukup</h3>
+								<img src="/icons/advice/quality.svg" alt="Icon Quality"/>
 							</div>
 							<p className="opacity-90 leading-[30px]">
-								Makan dengan penuh perhatian dan nikmati setiap suapan. Ini membantu mengurangi kecenderungan untuk makan berlebihan
-								secara tidak sadar.
+							Meskipun Anda memiliki status BMI kurang, melakukan aktivitas fisik yang santai dapat membantu 
+							meningkatkan nafsu makan dan meningkatkan kesehatan tubuh Anda.
 							</p>
 						</div>
 					</div>
@@ -341,31 +403,32 @@ function Advice() {
 					<div className="grid grid-cols-3 gap-5 tab:grid-cols-2 sm:grid-cols-1">
 						<div className="p-6 shadow-[0px_0px_44px_-5px_rgba(0,0,0,0.10)] rounded-[10px]">
 							<div className="flex justify-between pb-2 mb-3 border-b-[1px] border-white-300">
-								<h3 className="text-xl font-semibold">Piring Kecil</h3>
-								<img src="/icons/advice/plate.svg" alt="Icon Piring" />
+								<h3 className="text-xl font-semibold">Rencana Menu Makan</h3>
+								<img src="/icons/advice/rencana.svg" alt="Icon Rencana"/>
 							</div>
 							<p className="opacity-90 leading-[30px]">
-								Gunakan piring yang lebih kecil untuk membantu mengontrol porsi makan. Ini memberi sinyal otak bahwa porsi sudah cukup.
+							Pastikan Anda untuk mengonsumsi makanan yang seimbang. 
+							Konsumsi makanan yang bervariasi, termasuk sayuran, buah, protein, dan karbohidrat.
 							</p>
 						</div>
 						<div className="p-6 shadow-[0px_0px_44px_-5px_rgba(0,0,0,0.10)] rounded-[10px]">
 							<div className="flex justify-between pb-2 mb-3 border-b-[1px] border-white-300">
-								<h3 className="text-xl font-semibold">Makanan Berkualitas</h3>
-								<img src="/icons/advice/quality.svg" alt="Icon Berkualitas" />
+								<h3 className="text-xl font-semibold">Menjaga Keseimbangan</h3>
+								<img src="/icons/advice/stress.svg" alt="Icon Stress"/>
 							</div>
 							<p className="opacity-90 leading-[30px]">
-								Pilih makanan yang kaya nutrisi sehingga Anda merasa kenyang lebih lama. Hindari camilan tinggi gula dan lemak yang tidak
-								memberikan rasa kenyang.
+							Aktivitas fisik secara teratur dapat membantu meningkatkan kesehatan jantung, 
+							meningkatkan kekuatan otot, dan meningkatkan fleksibilitas tubuh.
 							</p>
 						</div>
 						<div className="p-6 shadow-[0px_0px_44px_-5px_rgba(0,0,0,0.10)] rounded-[10px] tab:col-span-2 sm:col-span-1">
 							<div className="flex justify-between pb-2 mb-3 border-b-[1px] border-white-300">
-								<h3 className="text-xl font-semibold">Pola Makan Sadar</h3>
-								<img src="/icons/advice/eat.svg" alt="Icon Makan" />
+								<h3 className="text-xl font-semibold">Tidur yang cukup</h3>
+								<img src="/icons/advice/tidur.svg" alt="Icon Tidur"/>
 							</div>
 							<p className="opacity-90 leading-[30px]">
-								Makan dengan penuh perhatian dan nikmati setiap suapan. Ini membantu mengurangi kecenderungan untuk makan berlebihan
-								secara tidak sadar.
+							Pastikan Anda untuk tidur yang cukup (7-8 jam sehari) dan kelola stres dengan baik. 
+							Tidur yang cukup dapat membantu meningkatkan kesehatan tubuh dan kualitas hidup.
 							</p>
 						</div>
 					</div>
@@ -375,31 +438,32 @@ function Advice() {
 					<div className="grid grid-cols-3 gap-5 tab:grid-cols-2 sm:grid-cols-1">
 						<div className="p-6 shadow-[0px_0px_44px_-5px_rgba(0,0,0,0.10)] rounded-[10px]">
 							<div className="flex justify-between pb-2 mb-3 border-b-[1px] border-white-300">
-								<h3 className="text-xl font-semibold">Piring Kecil Banget</h3>
-								<img src="/icons/advice/plate.svg" alt="Icon Piring" />
+								<h3 className="text-xl font-semibold">Rencana Menu Makan</h3>
+								<img src="/icons/advice/plate.svg" alt="Icon Piring"/>
 							</div>
 							<p className="opacity-90 leading-[30px]">
-								Gunakan piring yang lebih kecil untuk membantu mengontrol porsi makan. Ini memberi sinyal otak bahwa porsi sudah cukup.
+							Pastikan Anda untuk mengurangi asupan kalori dan memilih makanan yang seimbang, 
+							hindari makan berlebihan dan porsi makan yang tepat.
 							</p>
 						</div>
 						<div className="p-6 shadow-[0px_0px_44px_-5px_rgba(0,0,0,0.10)] rounded-[10px]">
 							<div className="flex justify-between pb-2 mb-3 border-b-[1px] border-white-300">
-								<h3 className="text-xl font-semibold">Makanan Berkualitas</h3>
-								<img src="/icons/advice/quality.svg" alt="Icon Berkualitas" />
+								<h3 className="text-xl font-semibold">Manajemen Stress</h3>
+								<img src="/icons/advice/quality.svg" alt="Icon Quality"/>
 							</div>
 							<p className="opacity-90 leading-[30px]">
-								Pilih makanan yang kaya nutrisi sehingga Anda merasa kenyang lebih lama. Hindari camilan tinggi gula dan lemak yang tidak
-								memberikan rasa kenyang.
+							Aktivitas fisik secara teratur dapat membantu meningkatkan pembakaran kalori 
+							dan meningkatkan kesehatan tubuh.
 							</p>
 						</div>
 						<div className="p-6 shadow-[0px_0px_44px_-5px_rgba(0,0,0,0.10)] rounded-[10px] tab:col-span-2 sm:col-span-1">
 							<div className="flex justify-between pb-2 mb-3 border-b-[1px] border-white-300">
-								<h3 className="text-xl font-semibold">Pola Makan Sadar</h3>
-								<img src="/icons/advice/eat.svg" alt="Icon Makan" />
+								<h3 className="text-xl font-semibold">Tidur yang cukup</h3>
+								<img src="/icons/advice/air-mineral.svg" alt=" Icon Air"/>
 							</div>
 							<p className="opacity-90 leading-[30px]">
-								Makan dengan penuh perhatian dan nikmati setiap suapan. Ini membantu mengurangi kecenderungan untuk makan berlebihan
-								secara tidak sadar.
+							Pastikan Anda untuk minum banyak air untuk membantu meningkatkan metabolisme 
+							tubuh dan mengurangi rasa lapar. 
 							</p>
 						</div>
 					</div>
