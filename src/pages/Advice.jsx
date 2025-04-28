@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 function Advice() {
 	const dispatch = useDispatch();
 	const token = useSelector((state) => state.auth.token);
+	const userInfo = useSelector((state) => state.auth.userInfo);
 	const [recommendations, setRecommendations] = useState([]);
 	const [isFetching, setIsFetching] = useState(true);
 	const navigate = useNavigate();
@@ -246,7 +247,7 @@ function Advice() {
 					</div>
 				</div>
 			</section> */}
-			<section className="px-[6.25%] py-20 sm:py-12 text-navy">
+			<section className="px-[6.25%] pt-20 sm:py-12 text-navy">
 				<div className="mb-12 sm:mb-8 w-[75%] sm:w-full">
 					<h2 className="text-3xl sm:text-mobile-3xl font-bold">
 						Gaya
@@ -288,6 +289,121 @@ function Advice() {
 						</div>
 					</div>
 				</div>
+			</section>
+
+			<section className="px-[6.25%] py-20 sm:pt-12 text-navy">
+				<div className="mb-12 sm:mb-8">
+					<h2 className="text-3xl sm:text-mobile-3xl font-bold">
+						Tips
+						<span className="text-orange">Pengendalian</span> Porsi
+     				</h2>
+					<p className="opacity-90 leading-[30px]">
+						Pelajari strategi sederhana untuk mengontrol porsi makan dan menghindari makan berlebihan.
+						{' '}
+					</p>
+				</div>
+				{/* Ketika BMI Kurang */}
+				{userInfo.bmi < 18.5 && (
+					<div className="grid grid-cols-3 gap-5 tab:grid-cols-2 sm:grid-cols-1">
+						<div className="p-6 shadow-[0px_0px_44px_-5px_rgba(0,0,0,0.10)] rounded-[10px]">
+							<div className="flex justify-between pb-2 mb-3 border-b-[1px] border-white-300">
+								<h3 className="text-xl font-semibold">Piring Kecil</h3>
+								<img src="/icons/advice/plate.svg" alt="Icon Piring" />
+							</div>
+							<p className="opacity-90 leading-[30px]">
+								Gunakan piring yang lebih kecil untuk membantu mengontrol porsi makan. Ini memberi sinyal otak bahwa porsi sudah cukup.
+							</p>
+						</div>
+						<div className="p-6 shadow-[0px_0px_44px_-5px_rgba(0,0,0,0.10)] rounded-[10px]">
+							<div className="flex justify-between pb-2 mb-3 border-b-[1px] border-white-300">
+								<h3 className="text-xl font-semibold">Makanan Berkualitas</h3>
+								<img src="/icons/advice/quality.svg" alt="Icon Berkualitas" />
+							</div>
+							<p className="opacity-90 leading-[30px]">
+								Pilih makanan yang kaya nutrisi sehingga Anda merasa kenyang lebih lama. Hindari camilan tinggi gula dan lemak yang tidak
+								memberikan rasa kenyang.
+							</p>
+						</div>
+						<div className="p-6 shadow-[0px_0px_44px_-5px_rgba(0,0,0,0.10)] rounded-[10px] tab:col-span-2 sm:col-span-1">
+							<div className="flex justify-between pb-2 mb-3 border-b-[1px] border-white-300">
+								<h3 className="text-xl font-semibold">Pola Makan Sadar</h3>
+								<img src="/icons/advice/eat.svg" alt="Icon Makan" />
+							</div>
+							<p className="opacity-90 leading-[30px]">
+								Makan dengan penuh perhatian dan nikmati setiap suapan. Ini membantu mengurangi kecenderungan untuk makan berlebihan
+								secara tidak sadar.
+							</p>
+						</div>
+					</div>
+				)}
+				{/* Ketika BMI Normal */}
+				{(userInfo.bmi  >= 18.5 && userInfo.bmi < 24.9) && (
+					<div className="grid grid-cols-3 gap-5 tab:grid-cols-2 sm:grid-cols-1">
+						<div className="p-6 shadow-[0px_0px_44px_-5px_rgba(0,0,0,0.10)] rounded-[10px]">
+							<div className="flex justify-between pb-2 mb-3 border-b-[1px] border-white-300">
+								<h3 className="text-xl font-semibold">Piring Kecil</h3>
+								<img src="/icons/advice/plate.svg" alt="Icon Piring" />
+							</div>
+							<p className="opacity-90 leading-[30px]">
+								Gunakan piring yang lebih kecil untuk membantu mengontrol porsi makan. Ini memberi sinyal otak bahwa porsi sudah cukup.
+							</p>
+						</div>
+						<div className="p-6 shadow-[0px_0px_44px_-5px_rgba(0,0,0,0.10)] rounded-[10px]">
+							<div className="flex justify-between pb-2 mb-3 border-b-[1px] border-white-300">
+								<h3 className="text-xl font-semibold">Makanan Berkualitas</h3>
+								<img src="/icons/advice/quality.svg" alt="Icon Berkualitas" />
+							</div>
+							<p className="opacity-90 leading-[30px]">
+								Pilih makanan yang kaya nutrisi sehingga Anda merasa kenyang lebih lama. Hindari camilan tinggi gula dan lemak yang tidak
+								memberikan rasa kenyang.
+							</p>
+						</div>
+						<div className="p-6 shadow-[0px_0px_44px_-5px_rgba(0,0,0,0.10)] rounded-[10px] tab:col-span-2 sm:col-span-1">
+							<div className="flex justify-between pb-2 mb-3 border-b-[1px] border-white-300">
+								<h3 className="text-xl font-semibold">Pola Makan Sadar</h3>
+								<img src="/icons/advice/eat.svg" alt="Icon Makan" />
+							</div>
+							<p className="opacity-90 leading-[30px]">
+								Makan dengan penuh perhatian dan nikmati setiap suapan. Ini membantu mengurangi kecenderungan untuk makan berlebihan
+								secara tidak sadar.
+							</p>
+						</div>
+					</div>
+				)}
+				{/* Ketika BMI Berlebih */}
+				{userInfo.bmi  >= 25 && (
+					<div className="grid grid-cols-3 gap-5 tab:grid-cols-2 sm:grid-cols-1">
+						<div className="p-6 shadow-[0px_0px_44px_-5px_rgba(0,0,0,0.10)] rounded-[10px]">
+							<div className="flex justify-between pb-2 mb-3 border-b-[1px] border-white-300">
+								<h3 className="text-xl font-semibold">Piring Kecil Banget</h3>
+								<img src="/icons/advice/plate.svg" alt="Icon Piring" />
+							</div>
+							<p className="opacity-90 leading-[30px]">
+								Gunakan piring yang lebih kecil untuk membantu mengontrol porsi makan. Ini memberi sinyal otak bahwa porsi sudah cukup.
+							</p>
+						</div>
+						<div className="p-6 shadow-[0px_0px_44px_-5px_rgba(0,0,0,0.10)] rounded-[10px]">
+							<div className="flex justify-between pb-2 mb-3 border-b-[1px] border-white-300">
+								<h3 className="text-xl font-semibold">Makanan Berkualitas</h3>
+								<img src="/icons/advice/quality.svg" alt="Icon Berkualitas" />
+							</div>
+							<p className="opacity-90 leading-[30px]">
+								Pilih makanan yang kaya nutrisi sehingga Anda merasa kenyang lebih lama. Hindari camilan tinggi gula dan lemak yang tidak
+								memberikan rasa kenyang.
+							</p>
+						</div>
+						<div className="p-6 shadow-[0px_0px_44px_-5px_rgba(0,0,0,0.10)] rounded-[10px] tab:col-span-2 sm:col-span-1">
+							<div className="flex justify-between pb-2 mb-3 border-b-[1px] border-white-300">
+								<h3 className="text-xl font-semibold">Pola Makan Sadar</h3>
+								<img src="/icons/advice/eat.svg" alt="Icon Makan" />
+							</div>
+							<p className="opacity-90 leading-[30px]">
+								Makan dengan penuh perhatian dan nikmati setiap suapan. Ini membantu mengurangi kecenderungan untuk makan berlebihan
+								secara tidak sadar.
+							</p>
+						</div>
+					</div>
+				)}
 			</section>
 		</>
 	);
