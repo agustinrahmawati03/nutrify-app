@@ -36,7 +36,7 @@ function ForgetPassword() {
 			.post('/forgot-password/verify-code', { email: formData.email, code: formData.code_verify })
 			.then((res) => {
 				// console.log(res);
-				if (res.status === 200) {
+				if (res?.status === 200) {
 					setCodeVerified(true);
 					// toast.info(res.data.message || 'Something went wrong!', { position: 'bottom-right' });
 				}
@@ -80,7 +80,7 @@ function ForgetPassword() {
 					</h1>
 					<div className="overflow-hidden w-full">
 						<div className="flex">
-							<div className={`mt-1 transition-all w-full flex-shrink-0 flex-grow-0 ${codeVerified ? 'transform -translate-x-full' : ''}`}>
+							<div className={`mt-1 transition-all w-full flex-shrink-0 flex-grow-0 px-1 ${codeVerified ? 'transform -translate-x-full' : ''}`}>
 								<input
 									type="email"
 									className="block w-full mt-3 rounded-md h-11 p-4 placeholder-[#002140]"
