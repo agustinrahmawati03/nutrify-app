@@ -6,10 +6,12 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Button from '../components/buttons/Button';
 import Breadcrumb from '../components/Breadcrumb';
+import { setAuth } from '../redux/slices/authSlice';
 
 function EditProfile() {
 	const dispatch = useDispatch();
 	const token = useSelector((state) => state.auth.token);
+	const userInfo = useSelector((state) => state.auth.userInfo);
 	const [user, setUser] = useState({});
 	const navigate = useNavigate();
 	const breadcrumbItems = [
@@ -48,6 +50,17 @@ function EditProfile() {
 		};
 		axios.put('/profile', formData, config).then((res) => {
 			if (res.status === 200 && res.data) {
+				if (res.data.changeSuccess?.bmi) {
+					const updatedUserInfo = { ...userInfo, bmi: res.data.changeSuccess?.bmi };
+					dispatch(
+						setAuth({
+							token: token,
+							username: user.username,
+							isAuthenticated: true,
+							userInfo: updatedUserInfo,
+						})
+					)
+				}
 				toast.success(res.data.message, { position: 'bottom-right' });
 			} else {
 				toast.error(res.data.message ?? 'Something went wrong', { position: 'bottom-right' });
