@@ -131,15 +131,15 @@ function Advice() {
 				<div className="flex flex-col gap-5">
 					{recommendations.map((recommendation) => (
 					<div className="flex border-[1px] border-white-400 rounded-lg overflow-hidden sm:flex-col">
-						<div className="w-[20%] tab:w-[35%] sm:h-[200px]">
+						<div className="w-[20%] sm:w-[100%] tab:w-[35%] sm:h-[200px]">
 							<img
-								className="w-[260px] h-[230px] sm:object-center"
+								className="w-[260px] h-[230px] sm:object-center mx-auto block"
 								src={recommendation.icon || '/advice/kalender.svg'}
 								alt="Ilustrasi Bagikan Tujuan"
 							/>
 						</div>
 						<div className="p-6 w-[80%] tab:w-[65%] sm:w-full">
-							<h3 className="text-xl font-semibold mb-[10px]">{recommendation.name}</h3>
+							<h3 className="text-xl font-semibold mb-[10px] sm:text-center">{recommendation.name}</h3>
 							<small>{recommendation.duration}</small>
 							<p className="opacity-90 leading-[30px] sm:leading-[26px] ">
 							{recommendation.description}
