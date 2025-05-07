@@ -30,7 +30,7 @@ function FilterContainer() {
 		);
 	};
 	return (
-		<div className="flex w-full flex-row overflow-auto gap-[10px] mt-8 scrollbar-hide items-center justify-center">
+		<div className="flex w-full flex-row overflow-auto gap-[10px] mt-8 scrollbar-hide items-center sm:justify-start md:justify-center">
 			{categories.map((category, i) => (
 				<div key={i} onClick={() => selectCategory(category._id)}>
 					<ItemFilter category={category.name} id={category._id} />
