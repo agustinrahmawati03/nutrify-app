@@ -145,10 +145,10 @@ function Advice() {
 							{recommendation.description}
 							</p>
 							<p className="opacity-90 leading-[30px] sm:leading-[26px] ">
-							{recommendation.benefit ? `Manfaat: ${recommendation.benefit}` : ''}
+							{recommendation.benefit ? `Manfaat : ${recommendation.benefit}` : ''}
 							</p>
 							<p className="opacity-90 leading-[30px] sm:leading-[26px] ">
-							{recommendation.tips ? `Tips: ${recommendation.tips}` : ''}
+							{recommendation.tips ? `Tips : ${recommendation.tips}` : ''}
 							</p>
 						</div>
 					</div>
