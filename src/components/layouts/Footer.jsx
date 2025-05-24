@@ -10,7 +10,7 @@ function Footer() {
 				<div className="text-white flex flex-row  gap-4 items-center justify-center md:mb-5 md:mt-4 ">
 					<Link to="/">Home</Link>
 					<span className="w-[6px] h-[6px] bg-white rounded-full" />
-					<Link to="/advice">Artikel</Link>
+					<Link to="/advice">Tracking</Link>
 				</div>
 				<div className="flex flex-row items-center justify-center gap-3">
 					{/* <a href="#">
