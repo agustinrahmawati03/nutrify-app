@@ -57,7 +57,7 @@ function Login() {
 				<div className="w-[51.4%] sm:w-full flex flex-col justify-center p-10 shadow-lg">
 					<h1 className="text-2xl">
 						<span className="text-white mr-[4px] font-bold">Login</span>
-						<span className="text-[#FB8500] font-bold">Now!</span>
+						<span className="text-[#FB8500] font-bold">Sekarang!</span>
 					</h1>
 					<form onSubmit={handleSubmit} className="mt-1">
 						<input
