@@ -85,7 +85,7 @@ function SignUp() {
                 <div className="w-full px-[60px] sm:px-8 py-8 bg-white/10 backdrop-blur-[5px] rounded-md shadow-lg">
                     <h1 className=" text-2xl mb-4">
                         <span className="text-white mr-[4px] font-bold">Register</span>
-                        <span className="text-[#FB8500] font-bold">Now!</span>
+                        <span className="text-[#FB8500] font-bold">Sekarang!</span>
                     </h1>
                     <form onSubmit={handleSubmit} className="flex flex-wrap">
                         <div className="grid grid-cols-2 sm:grid-cols-1 gap-5 w-full">
