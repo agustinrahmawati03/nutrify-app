@@ -12,7 +12,7 @@ function NutritionWrap({ name, icon, value }) {
 	);
 }
 
-function CardFoodHistory({ data, portion }) {
+function CardFoodHistory({ data, portion, date, time, onDelete }) {
 	const fat = data ? (data.fat * portion).toFixed(2).toString() : '';
 	const calorie = data ? (data.cal * portion).toFixed(2).toString() : '';
 	const protein = data ? (data.protein * portion).toFixed(2).toString() : '';
@@ -44,7 +44,35 @@ function CardFoodHistory({ data, portion }) {
 			<div className="w-32 h-9 rounded-full bg-slate-200 flex flex-row items-center justify-center tab:hidden">
 				<p>{portion} Porsi</p>
 			</div>
-		</div>
+			{ onDelete && <div className="flex items-center justify-center">
+				<button
+					type="button"
+					className="me-2 ml-4 py-2 px-3 bg-red border-2 rounded-lg"
+					onClick={() => onDelete({ date, foodId: data._id, time })}
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						strokeWidth="2"
+						strokeLinecap="round"
+						strokeLinejoin="round"
+						className="icon-tabler icon-tabler-trash text-white"
+						>
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+						<path d="M4 7l16 0" />
+						<path d="M10 11l0 6" />
+						<path d="M14 11l0 6" />
+						<path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+						<path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+					</svg>
+				</button>
+			</div>}
+			
+			</div>
 	);
 }
 

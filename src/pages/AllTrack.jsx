@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { DayPicker } from 'react-day-picker';
+import { toast } from 'react-toastify';
 import Recommendation from '../components/Recommendation';
 import CardInfoBody from '../components/cards/CardInfoBody';
 import CardNutritionTrack from '../components/cards/CardNutritionTrack';
@@ -109,6 +110,36 @@ function AllTrack() {
 		const formattedDate = `${day} ${monthName} ${year}`;
 		return formattedDate;
 	};
+
+	const handleDeleteFood = async ({ date, foodId, time }) => {
+		const config = {
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
+		};
+		axios
+			.post('/track/delete', {
+				date: selectedDate.toLocaleDateString('fr-CA'),
+				foodId,
+				time,
+			}, config)
+			.then((res) => {
+				if (res.status === 200) {
+					toast.success(res.data.message, { position: 'bottom-right' });
+					setHistoryFoods(prev =>
+						prev.filter(item => !(item.foodId._id === foodId && item.time === time))
+					);
+				}
+			})
+			.catch((err) => {
+				toast.error(res.data.message, { position: 'bottom-right' });
+				console.error(err);
+			})
+			.finally(() => {
+				setIsFetching(false);
+			});
+	};
+
 	return (
 		<>
 			<section className="mt-32 px-[6.25%] grid grid-cols-2 gap-5 tab:grid-cols-1">
@@ -189,7 +220,7 @@ function AllTrack() {
 				<div>
 					{isFetching && [...Array(3)].map((_, i) => <PlaceholderCardFoodHistory key={i} />)}
 					{historyFoods.map((x, index) => (
-						<CardFoodHistory key={index} data={x.foodId} portion={x.portion} />
+						<CardFoodHistory key={index} data={x.foodId} portion={x.portion} date={selectedDate} time={x.time} onDelete={handleDeleteFood} />
 					))}
 				</div>
 			</section>
